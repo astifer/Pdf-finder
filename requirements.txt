@@ -1,0 +1,5 @@
+Levenshtein
+frontend
+pymupdf
+python-Levenshtein
+pandas
