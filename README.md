@@ -47,7 +47,8 @@ row_rate = levenstain(word_1,word_2)/lenght_row_word
 ```python
 python main.py "archive tar process"
 ```
-![alt text](https://github.com/cradmlozzer/Digital-breakthrough/example/example_pdf.png?raw=true)
+Пример оформеления в файле
+![example_pdf](https://github.com/cradmlozzer/Digital-breakthrough/assets/108126763/43dc29c1-4d2d-462d-9e5e-6ccac54b4dea)
 
-![alt text](https://github.com/cradmlozzer/Digital-breakthrough/example/example_table.png?raw=true)
-
+Пример оформление в таблице
+![example_table](https://github.com/cradmlozzer/Digital-breakthrough/assets/108126763/90fa1597-a725-46f9-b137-f47eb6929956)
