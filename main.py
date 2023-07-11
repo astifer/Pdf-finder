@@ -21,8 +21,8 @@ parser.add_argument(
 parser.add_argument(
     '--mask_thres',
     type=int,
-    default=3,
-    help="Doesn't pay attantion to sample when a sentence less than a number(threshold) in a row (default: 3)"
+    default=0,
+    help="Doesn't pay attantion to sample when a sentence less than a number(threshold) in a row (default: 0)"
 )
 parser.add_argument(
     '--rate',

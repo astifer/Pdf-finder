@@ -1,9 +1,12 @@
-def process_mask(row_mask, t=4):
+def process_mask(row_mask, t=0):
   '''
   Убирает все последовательности единиц короче <t>
   Если есть один нуль между единицами, кастует его к единице
   '''
-
+  if t==0:
+    return row_mask
+  
+      
   n = len(row_mask)
   post_mask = [0]*(n)
   hold = t # длина условного эталона - 3
