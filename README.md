@@ -46,6 +46,10 @@ row_rate = levenstain(word_1,word_2)/lenght_row_word
 
 Булевый параметр - делать ли отчет по файлу в виде таблицы
 
+```python
+python main.py "process include folder" --indir data --mask_thres 0 --rate 0.2 --is_make_csv True
+```
+
 ### Пример использования
 
 ```python
