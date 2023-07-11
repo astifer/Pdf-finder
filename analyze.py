@@ -43,8 +43,8 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
                     dist = lev(word,word2)/len_w
                     
                     if dist < lev_rate:
-                        if len(word) == len(word2): descr = 'Изменен символ: ' + word + ' and ' + word2
-                        else: descr = 'Разная длина слов: ' + word + ' and ' + word2
+                        if len(word) == len(word2): descr = 'Symbol changed: ' + word + ' and ' + word2
+                        else: descr = "Different word's lenght: " + word + ' and ' + word2
                         
                         info.append({'filename': name.split('/')[-1], 
                                      'page': page_count, 

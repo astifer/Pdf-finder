@@ -46,17 +46,16 @@ row_rate = levenstain(word_1,word_2)/lenght_row_word
 
 Булевый параметр - делать ли отчет по файлу в виде таблицы
 
-```python
-python main.py "process include folder" --indir data --mask_thres 0 --rate 0.2 --is_make_csv True
-```
+
 
 ### Пример использования
 
 ```python
-python main.py "archive tar process"
+python main.py "archive tar process" --indir data --mask_thres 0 --rate 0.2 --is_make_csv True
 ```
-Пример оформеления в файле
+
+_pdf_
 ![example_pdf](https://github.com/cradmlozzer/Digital-breakthrough/assets/108126763/43dc29c1-4d2d-462d-9e5e-6ccac54b4dea)
 
-Пример оформление в таблице
-![example_table](https://github.com/cradmlozzer/Digital-breakthrough/assets/108126763/90fa1597-a725-46f9-b137-f47eb6929956)
+_csv_
+![example_table](https://github.com/cradmlozzer/Digital-breakthrough/assets/108126763/d0c6a93e-f840-45bb-b566-a4fab7189926)
