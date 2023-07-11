@@ -14,6 +14,10 @@ cd Digital-breakthrough
 python -m venv venv
 venv/Scripts/activate.bat #for windows
 ```
+Устанавливаем зависимости
+```python
+pip install -r requirements.txt
+```
 
 ### Описание программы и основные параметры
 
