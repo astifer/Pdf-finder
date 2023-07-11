@@ -1,6 +1,5 @@
 data/*
+!data/example.pdf
 results
 venv
 __pycache__
-
-! data/example.pdf
