@@ -26,7 +26,7 @@ parser.add_argument(
 )
 parser.add_argument(
     '--rate',
-    type=int,
+    type=float,
     default=0.2,
     help='Rate for word comparison. The less the harder to find similar word (default: 0.2)'
 )

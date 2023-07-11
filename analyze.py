@@ -22,11 +22,6 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
     text = [word for word in text if len(word)>1]
     mask = []
 
-    with open("D:/Digital-breakthrough/results/last_log.txt", 'w', encoding="utf-8") as f:
-        
-        f.write(f"name: {name}, phrase: {phrase}, lev_rate: {lev_rate}, mask_thres: {mask_threshold} \n")
-
-    
     for word in text:
       len_w = len(word)
       
@@ -36,7 +31,7 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
                          'Jaccard': '-', 
                          'Levenshtein': '0', 
                          'subject': word, 
-                         'description': 'perfect suitable'})
+                         'description': 'perfectly suitable'})
             
             mask.append(1)
       else:
