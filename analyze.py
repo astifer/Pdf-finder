@@ -22,12 +22,9 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
     text = [word for word in text if len(word)>1]
     mask = []
 
-    with open("D:/Digital-breakthrough/results/logs.txt", 'w', encoding="utf-8") as f:
+    with open("D:/Digital-breakthrough/results/last_log.txt", 'w', encoding="utf-8") as f:
         
-        f.write(f"name: {name}, \
-                phrase: {phrase}, \
-                lev_rate: {lev_rate}, \
-                mask_thres: {mask_threshold} \n")
+        f.write(f"name: {name}, phrase: {phrase}, lev_rate: {lev_rate}, mask_thres: {mask_threshold} \n")
 
     
     for word in text:
@@ -56,8 +53,8 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
                         
                         info.append({'filename': name.split('/')[-1], 
                                      'page': page_count, 
-                                     'Jaccard': jaccard(word, word2), 
-                                     'Levenshtein': lev(word,word2), 
+                                     'Jaccard': str(jaccard(word, word2)), 
+                                     'Levenshtein': str(lev(word,word2)), 
                                      'subject': word, 
                                      'description': descr})
 

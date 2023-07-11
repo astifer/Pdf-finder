@@ -44,7 +44,7 @@ mask_threshold = args.mask_thres
 lev_rate = args.rate
 # is_make_csv
 
-print(f'we will find {args.phrase} in docs at folder {args.indir}. \n')
+print(f'we will find "{args.phrase}" in docs at folder {args.indir} \n')
 print('procces...\n')
 
 target_directory = ''
@@ -62,7 +62,7 @@ for address, dirs, files in os.walk('results'):
     
         
 def make_csv(name,info):
-    df = pd.DataFrame(info, columns=['filename','page','match','lev','subject','description'])
+    df = pd.DataFrame(info, columns=['filename','page','Jaccard','Levenshtein','subject','description'])
     df.to_csv(os.path.join(target_directory,f'{name}_info.csv'))
 
 def main(phrase):
@@ -81,7 +81,7 @@ def main(phrase):
         if args.is_make_csv: 
             make_csv(filename, info)
         
-        print(f'file "{filename}" is succecfully completed. Almost similar: {len(info)} positions\n')
+        print(f'file "{filename}" is succecfully completed. Similar: {len(info)} positions\n')
         
 main(args.phrase)
 

@@ -39,6 +39,7 @@ row_rate = levenstain(word_1,word_2)/lenght_row_word
 ```
 
 *  _is_make_csv_
+
 Булевый параметр - делать ли отчет по файлу в виде таблицы
 
 ### Пример использования
@@ -46,3 +47,7 @@ row_rate = levenstain(word_1,word_2)/lenght_row_word
 ```python
 python main.py "archive tar process"
 ```
+![](https://github.com/cradmlozzer/Digital-breakthrough/example/example_pdf.png?raw=true)
+
+![](https://github.com/cradmlozzer/Digital-breakthrough/example/example_table.png?raw=true)
+
