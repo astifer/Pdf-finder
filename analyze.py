@@ -19,6 +19,11 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
     page_count+=1
     
     text = page.get_text().split()
+
+    # text = bytes(text, encoding='utf8')
+    # text = text.decode("unicode_escape").split()
+    # print(text)
+
     text = [word for word in text if len(word)>1]
     mask = []
 
