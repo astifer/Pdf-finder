@@ -7,8 +7,7 @@ from my_distance import jaccard
 from my_mask import process_mask
 
 
-
-def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
+def analyze_file(name, phrase, lev_rate, target_directory):
   doc = fitz.open(os.path.join('data/',name))
   phrase_split = phrase.split()
   l = len(phrase)
@@ -18,19 +17,17 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
   for page in doc:
     page_count+=1
     
-    text = page.get_text().split()
+    text_list = page.get_text('words')      
 
-    # text = bytes(text, encoding='utf8')
-    # text = text.decode("unicode_escape").split()
-    # print(text)
+    # text = [word for word in text if len(word)>1]
+    mask = [[]]
 
-    text = [word for word in text if len(word)>1]
-    mask = []
-
-    for word in text:
+    for w in text_list:
+      word = w[4]
       len_w = len(word)
-      
+
       if word in phrase_split:
+            r = fitz.Rect(w[:4])  # make rect from word bbox
             info.append({'filename': name.split('/')[-1], 
                          'page': page_count, 
                          'Jaccard': '-', 
@@ -38,9 +35,9 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
                          'subject': word, 
                          'description': 'perfectly suitable'})
             
-            mask.append(1)
+            mask.append([1,r])
       else:
-            flag = False # is there a word in the source code
+            flag = False # is there a word in source code
             for word2 in phrase_split:
                 if (len(word2)-len(word)) > 7:
                     continue
@@ -48,7 +45,7 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
                     dist = lev(word,word2)/len_w
                     
                     if dist < lev_rate:
-                        if len(word) == len(word2): descr = 'Symbol changed: ' + word + ' and ' + word2
+                        if len(word) == len(word2): descr = 'Symbol is changed: ' + word + ' and ' + word2
                         else: descr = "Different word's lenght: " + word + ' and ' + word2
                         
                         info.append({'filename': name.split('/')[-1], 
@@ -58,18 +55,23 @@ def analyze_file(name, phrase, lev_rate, mask_threshold, target_directory):
                                      'subject': word, 
                                      'description': descr})
 
-                        mask.append(1)
+                        mask.append([1,r])
                         flag = True
                         break
                 if flag:
                     break
 
             if not(flag):
-                mask.append(0)
-    mask = process_mask(mask, mask_threshold)
-    
-    for r, word in zip(mask, text):
-      if r: page.add_highlight_annot(page.search_for(word))
-      
+                mask.append([0,0])
+                
+
+    mask = mask[1:]
+
+    # mask = process_mask(mask, mask_threshold)
+    for exist, rect in mask:
+      if exist: 
+          annot = page.add_highlight_annot([rect])
+          annot.update()
+
   doc.save(os.path.join(target_directory,f'{name}_highlighted.pdf'))
   return info

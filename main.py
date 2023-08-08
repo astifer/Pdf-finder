@@ -18,12 +18,12 @@ parser.add_argument(
     default='data',
     help='provide a folder (default: data)'
 )
-parser.add_argument(
-    '--mask_thres',
-    type=int,
-    default=0,
-    help="Doesn't pay attantion to sample when a sentence less than a number(threshold) in a row (default: 0)"
-)
+# parser.add_argument(
+#     '--mask_thres',
+#     type=int,
+#     default=0,
+#     help="Doesn't pay attantion to sample when a sentence less than a number(threshold) in a row (default: 0)"
+# )
 parser.add_argument(
     '--rate',
     type=float,
@@ -40,7 +40,7 @@ parser.add_argument(
 args = parser.parse_args()
 # phrase
 # indir
-mask_threshold = args.mask_thres
+# mask_threshold = args.mask_thres
 lev_rate = args.rate
 # is_make_csv
 
@@ -76,7 +76,7 @@ def main(phrase):
         break
         
     for filename in filenames:
-        info = analyze_file(filename, phrase, lev_rate, mask_threshold, target_directory)
+        info = analyze_file(filename, phrase, lev_rate, target_directory)
         
         if args.is_make_csv: 
             make_csv(filename, info)
